@@ -36,17 +36,16 @@ global class CreationTacheRappelBatch implements Database.Batchable<sObject>, Sc
         // Aucune action à effectuer après l'exécution de la tâche de lot 
     }
 
-        /* note: pour activer dans l'app le scheduler ci-dessous, il faut l'exécuter une fois dans la developper console:
-        CreationTacheRappelBatch scheduler = new CreationTacheRappelBatch();
-        scheduler.execute(null);
-        */
-        public void execute (SchedulableContext ctx) {
+    /* note: pour activer dans l'app le scheduler ci-dessous, il faut l'exécuter une fois dans la developper console:
+    CreationTacheRappelBatch scheduler = new CreationTacheRappelBatch();
+    scheduler.execute(null);
+    */
+    public void execute (SchedulableContext ctx) {
         CreationTacheRappelBatch creationTacheDeRappelBatch = new CreationTacheRappelBatch();
         String cronExp = '0 0 0 ? * 2#1'; // Le 2#1 signifie le premier lundi de chaque mois
         String jobId = system.schedule('création tache de rappel', cronExp, creationTacheDeRappelBatch);
         // Affiche le JobId pour référence
         System.debug('Job Id : ' + jobId);
-        
         
     }
 

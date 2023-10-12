@@ -39,9 +39,10 @@ public  class TestDataFactory {
         List<Account> accounts = new List<Account>();
         List<Task> tasks = new List<Task>();
         for (Integer i = 0; i < NumberOfAccounts; i++) {
-            accounts.add(createAccount((accountName + i), false));
+            Account account = createAccount((accountName + i), false);
+            accounts.add(account);
             if(withTask){
-                tasks.add(createTask((accountName + i), false));
+                tasks.add(createTask(account.Id, false));
             }
         }
         if (insertData){

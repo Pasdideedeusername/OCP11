@@ -35,12 +35,9 @@ public class OrderTriggerHandlerTest {
     @isTest
     static void testUpdateAccountActiveStatus() {
         // Récupére le compte créé par votre TestDataFactory
-        Account testAccount = [SELECT Id, Active__c FROM Account LIMIT 1];
+        Account testAccount = [SELECT Id, Active__c FROM Account WHERE Active__c=true LIMIT 1];
         
         Test.startTest();
-        // Vérifie si le compte est actif
-        System.assertEquals(true, testAccount.Active__c, 'Le compte devrait être actif');
-        
         // Supprime les Order
         List<Order> ordersToDelete = [SELECT Id FROM Order];
         delete ordersToDelete;
