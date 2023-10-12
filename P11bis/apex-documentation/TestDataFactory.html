@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>Apex Documentation</title>
+    <meta charset="UTF-8">
+    <script type="module" src="./assets/index.js"></script>
+    <script type="module" src="./assets/search-idx.js"></script>
+    <script type="module" src="./assets/search.js"></script>
+    <script charset="UTF-8" src="./assets/highlight.js"></script>
+    <script charset="UTF-8" src="./assets/mark.js"></script>
+    <script charset="UTF-8" src="./assets/lunr.js"></script>
+    <link rel="stylesheet" href="./assets/highlight.css" />
+    <link rel="stylesheet" type="text/css" href="./assets/index.css" />
+    <link rel="shortcut icon" type="image/png" href="./assets/favicon.png" />
+  </head>
+
+  <body>
+    <div id="side-bar">
+
+      <div id="logo-container">
+        <div class="title">
+          Apex Documentation
+        </div>
+        <img src="assets/logo.png" />
+        <div class="subtitle">
+          Powered by <a target="_blank" rel="noopener noreferrer" href="https://github.com/no-stack-dub-sack/apexdox-vs-code">ApexDox VS Code</a>
+        </div>
+      </div>
+      <div id="search-wrapper">
+        <div class="search-icon"></div>
+        <input id="search-input" type="text" autocomplete="off" placeholder="Search...">
+      </div>
+      <ul id="search-results" class=""></ul>
+      <div class="navbar">
+        <nav role="navigation">
+          <a class="nav-header" id="home" href="javascript:void(0)" onclick="goToLocation('index.html');">
+            Home
+          </a>
+          <details id="Miscellaneous" class="group-name">
+            <summary id="header-Miscellaneous" class="nav-header">
+              <span>Miscellaneous</span>
+            </summary>
+            <ul>
+              <!-- menu items -->
+              <li title="CreationTacheRappelBatch" id="item-CreationTacheRappelBatch" class="nav-item class global" onclick="goToLocation('CreationTacheRappelBatch.html');">
+                <a tabindex="1" href="javascript:void(0)">CreationTacheRappelBatch</a>
+              </li>
+              <li title="CreationTacheRappelBatchTest" id="item-CreationTacheRappelBatchTest" class="nav-item class private" onclick="goToLocation('CreationTacheRappelBatchTest.html');">
+                <a tabindex="1" href="javascript:void(0)">CreationTacheRappelBatchTest</a>
+              </li>
+              <li title="OrderTriggerHandler" id="item-OrderTriggerHandler" class="nav-item class public" onclick="goToLocation('OrderTriggerHandler.html');">
+                <a tabindex="1" href="javascript:void(0)">OrderTriggerHandler</a>
+              </li>
+              <li title="OrderTriggerHandlerTest" id="item-OrderTriggerHandlerTest" class="nav-item class public" onclick="goToLocation('OrderTriggerHandlerTest.html');">
+                <a tabindex="1" href="javascript:void(0)">OrderTriggerHandlerTest</a>
+              </li>
+              <li title="TestDataFactory" id="item-TestDataFactory" class="nav-item class public" onclick="goToLocation('TestDataFactory.html');">
+                <a tabindex="1" href="javascript:void(0)">TestDataFactory</a>
+              </li>
+            </ul>
+          </details>
+        </nav>
+      </div>
+    </div>
+    <table id="content">
+      <tr>
+        <td class="scoping-panel">
+          Show: <input type="checkbox" checked="true" id="cbx-all" onclick="toggleAllScopes(this.checked);" />
+          <label for="cbx-all">All</label>&nbsp;&nbsp;
+          <input type="checkbox" checked="true" id="cbx-global" onclick="toggleScope('global', this.checked);" />
+          <label for="cbx-global">
+            global
+          </label>&nbsp;&nbsp;<input type="checkbox" checked="true" id="cbx-public" onclick="toggleScope('public', this.checked);" />
+          <label for="cbx-public">
+            public
+          </label>&nbsp;&nbsp;<input type="checkbox" checked="true" id="cbx-protected" onclick="toggleScope('protected', this.checked);" />
+          <label for="cbx-protected">
+            protected
+          </label>&nbsp;&nbsp;<input type="checkbox" checked="true" id="cbx-private" onclick="toggleScope('private', this.checked);" />
+          <label for="cbx-private">
+            private
+          </label>&nbsp;&nbsp;<input type="checkbox" checked="true" id="cbx-testmethod" onclick="toggleScope('testmethod', this.checked);" />
+          <label for="cbx-testmethod">
+            testMethod
+          </label>&nbsp;&nbsp;<input type="checkbox" checked="true" id="cbx-webservice" onclick="toggleScope('webservice', this.checked);" />
+          <label for="cbx-webservice">
+            webService
+          </label>
+        </td>
+      </tr>
+      <tr>
+        <td class="doc-page">
+
+          <div class="section">
+
+            <h2 class="class-title top-level-type" id="TestDataFactory">
+              <span>TestDataFactory</span>
+            </h2>
+            <div class="class-container">
+
+              <div class="class-description">
+                Classe de test utilitaire pour la création de données de test dans les tests Apex.
+              </div>
+              <div class="class-subtitle">
+                Signature
+              </div>
+              <div class="class-annotations">@isTest</div>
+              <div class="class-signature">
+                public class TestDataFactory
+              </div>
+            </div>
+            <div class="subsection methods">
+              <h3 class="subsection-title methods">TestDataFactory Methods</h3>
+              <div class="methods-container">
+                <ul class="methods-toc">
+                  <li class="method public">
+                    <a class="methods-toc__entry " href="#TestDataFactory.createAccount">
+                      createAccount (accountName, insertData)
+                    </a>
+
+                    <div class="methods-toc__description">
+                      Crée un compte avec des options pour l&#39;insertion dans la base de données.
+                    </div>
+                  </li>
+                  <li class="method public">
+                    <a class="methods-toc__entry " href="#TestDataFactory.createManyAccountWithTask">
+                      createManyAccountWithTask (accountName, NumberOfAccounts, withTask, insertData)
+                    </a>
+
+                    <div class="methods-toc__description">
+                      Crée plusieurs comptes avec des options pour l&#39;insertion dans la base de données.
+                    </div>
+                  </li>
+                  <li class="method public">
+                    <a class="methods-toc__entry " href="#TestDataFactory.createOrder">
+                      createOrder (accountId, insertData)
+                    </a>
+
+                    <div class="methods-toc__description">
+                      Crée une commande avec des options pour l&#39;insertion dans la base de données.
+                    </div>
+                  </li>
+                  <li class="method public">
+                    <a class="methods-toc__entry " href="#TestDataFactory.createTask">
+                      createTask (whatId, insertData)
+                    </a>
+
+                    <div class="methods-toc__description">
+                      Crée une tâche de rappel avec des options pour l&#39;insertion dans la base de données.
+                    </div>
+                  </li>
+                </ul>
+                <div class="method public">
+                  <h4 class="method-title " id="TestDataFactory.createAccount">
+                    <span>createAccount(accountName, insertData)</span>
+                  </h4>
+                  <div class="method-description">
+                    Crée un compte avec des options pour l&#39;insertion dans la base de données.
+                  </div>
+                  <div class="method-subtitle">
+                    Signature
+                  </div>
+
+                  <div class="method-signature">
+                    public static Account createAccount (String accountName, Boolean insertData)
+                  </div>
+                  <div class="method-subtitle">Parameters</div>
+                  <div class="param-name">accountName</div>
+                  <div class="param-type">
+                    Type: <code class="code-inline">String</code>
+                  </div>
+                  <div class="param-description">Le nom du compte.</div>
+                  <div class="param-name">insertData</div>
+                  <div class="param-type">
+                    Type: <code class="code-inline">Boolean</code>
+                  </div>
+                  <div class="param-description">Indique si le compte doit être inséré dans la base de données.</div>
+                  <div class="method-subtitle">
+                    Returns
+                  </div>
+                  <div class="method-subtitle-description">
+                    Account Le compte créé.
+                  </div>
+                </div>
+                <div class="method public">
+                  <h4 class="method-title " id="TestDataFactory.createManyAccountWithTask">
+                    <span>createManyAccountWithTask(accountName, NumberOfAccounts, withTask, insertData)</span>
+                  </h4>
+                  <div class="method-description">
+                    Crée plusieurs comptes avec des options pour l&#39;insertion dans la base de données.
+                  </div>
+                  <div class="method-subtitle">
+                    Signature
+                  </div>
+
+                  <div class="method-signature">
+                    public static List&lt;Account&gt; createManyAccountWithTask (String accountName, Integer NumberOfAccounts, Boolean withTask, Boolean insertData)
+                  </div>
+                  <div class="method-subtitle">Parameters</div>
+                  <div class="param-name">accountName</div>
+                  <div class="param-type">
+                    Type: <code class="code-inline">String</code>
+                  </div>
+                  <div class="param-description">Le nom de base pour les comptes.</div>
+                  <div class="param-name">NumberOfAccounts</div>
+                  <div class="param-type">
+                    Type: <code class="code-inline">Integer</code>
+                  </div>
+                  <div class="param-description">Le nombre de comptes à créer.</div>
+                  <div class="param-name">withTask</div>
+                  <div class="param-type">
+                    Type: <code class="code-inline">Boolean</code>
+                  </div>
+                  <div class="param-description">Indique si une tâche de rappel &quot;Call&quot; doit être associée à chaque compte.</div>
+                  <div class="param-name">insertData</div>
+                  <div class="param-type">
+                    Type: <code class="code-inline">Boolean</code>
+                  </div>
+                  <div class="param-description">Indique si les comptes et les tâches de rappel doivent être insérés dans la base de données.</div>
+                  <div class="method-subtitle">
+                    Returns
+                  </div>
+                  <div class="method-subtitle-description">
+                    List&lt;Account&gt; La liste des comptes créés.
+                  </div>
+                </div>
+                <div class="method public">
+                  <h4 class="method-title " id="TestDataFactory.createOrder">
+                    <span>createOrder(accountId, insertData)</span>
+                  </h4>
+                  <div class="method-description">
+                    Crée une commande avec des options pour l&#39;insertion dans la base de données.
+                  </div>
+                  <div class="method-subtitle">
+                    Signature
+                  </div>
+
+                  <div class="method-signature">
+                    public static Order createOrder (Id accountId, Boolean insertData)
+                  </div>
+                  <div class="method-subtitle">Parameters</div>
+                  <div class="param-name">accountId</div>
+                  <div class="param-type">
+                    Type: <code class="code-inline">Id</code>
+                  </div>
+                  <div class="param-description">L&#39;ID du compte associé à la commande.</div>
+                  <div class="param-name">insertData</div>
+                  <div class="param-type">
+                    Type: <code class="code-inline">Boolean</code>
+                  </div>
+                  <div class="param-description">Indique si la commande doit être insérée dans la base de données.</div>
+                  <div class="method-subtitle">
+                    Returns
+                  </div>
+                  <div class="method-subtitle-description">
+                    Order La commande créée.
+                  </div>
+                </div>
+                <div class="method public">
+                  <h4 class="method-title " id="TestDataFactory.createTask">
+                    <span>createTask(whatId, insertData)</span>
+                  </h4>
+                  <div class="method-description">
+                    Crée une tâche de rappel avec des options pour l&#39;insertion dans la base de données.
+                  </div>
+                  <div class="method-subtitle">
+                    Signature
+                  </div>
+
+                  <div class="method-signature">
+                    public static Task createTask (String whatId, Boolean insertData)
+                  </div>
+                  <div class="method-subtitle">Parameters</div>
+                  <div class="param-name">whatId</div>
+                  <div class="param-type">
+                    Type: <code class="code-inline">String</code>
+                  </div>
+                  <div class="param-description">L&#39;ID de l&#39;objet associé à la tâche de rappel.</div>
+                  <div class="param-name">insertData</div>
+                  <div class="param-type">
+                    Type: <code class="code-inline">Boolean</code>
+                  </div>
+                  <div class="param-description">Indique si la tâche de rappel doit être insérée dans la base de données.</div>
+                  <div class="method-subtitle">
+                    Returns
+                  </div>
+                  <div class="method-subtitle-description">
+                    Task La tâche de rappel créée.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </td>
+      </tr>
+      <tr>
+        <td class="footer">
+
+          <div>
+            <a href="https://github.com/no-stack-dub-sack/apexdox-vs-code" target="_blank" rel="noopener noreferrer">
+              Powered By ApexDox VS Code
+            </a>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </body>
+
+</html>

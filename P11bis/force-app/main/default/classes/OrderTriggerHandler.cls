@@ -1,5 +1,17 @@
+/**
+ * Classe Apex pour gérer les déclencheurs et les opérations associées aux objets Order.
+ */
 public class OrderTriggerHandler {
+     /**
+     * Message d'erreur affiché lorsque la commande n'a pas de produits associés.
+     */
     public static final String ERROR_NO_PRODUCT = 'Trigger P11: Vous ne pouvez pas activer cette Commande car il n\'a pas de produits associés.';
+     /**
+     * Vérifie si les produits sont associés avant d'activer une commande.
+     *
+     * @param newOrders Liste des nouvelles commandes.
+     * @param oldOrderMap Map des anciennes commandes.
+     */
     public static void checkProductsBeforeActivation(List<Order> newOrders, Map<Id, Order> oldOrderMap) {
         List<Id> orderIdsToCheck = new List<Id>();
         
@@ -24,7 +36,11 @@ public class OrderTriggerHandler {
             }
         }
     }
-
+    /**
+     * Met à jour le statut actif du compte en fonction des commandes supprimées.
+     *
+     * @param deletedOrders Liste des commandes supprimées.
+     */
     public static void updateAccountActiveStatus(List<Order> deletedOrders) {
         Set<Id> accountIdsToUpdate = new Set<Id>();
         

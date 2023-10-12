@@ -1,5 +1,11 @@
+/**
+ * Classe de test Apex pour la classe OrderTriggerHandler.
+ */
 @isTest
 public class OrderTriggerHandlerTest {
+    /**
+     * Méthode de configuration des données de test.
+     */
     @TestSetup
     static void makeData(){ 
         // Crée un compte avec Active__c à true
@@ -10,6 +16,9 @@ public class OrderTriggerHandlerTest {
         Order order2 = TestDataFactory.createOrder(account.Id, true);
     }
     
+    /**
+     * Méthode de test pour vérifier l'activation d'une commande sans produits associés.
+     */
     @isTest
     static void testOrderActivationWithoutProducts() {
         // Met à jour le statut de l'Order en "Activated"
@@ -32,6 +41,9 @@ public class OrderTriggerHandlerTest {
         System.assertEquals(true, ex.getMessage().contains(expectedErrorMessage), 'Le message d\'erreur est incorrect');
     }
 
+    /**
+     * Méthode de test pour vérifier la mise à jour du statut actif du compte après la suppression des commandes.
+     */
     @isTest
     static void testUpdateAccountActiveStatus() {
         // Récupére le compte créé par votre TestDataFactory
