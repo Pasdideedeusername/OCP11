@@ -42,7 +42,8 @@ global class CreationTacheRappelBatch implements Database.Batchable<sObject>, Sc
                 Task newTask = new Task(
                     Subject = 'Call',
                     Status = 'New',
-                    Priority = 'Normal',
+                    ReminderDateTime = Date.today().addDays(5),
+                    IsReminderSet = true,
                     ActivityDate = Date.today().addDays(5),
                     WhatId = acc.Id
                 );
