@@ -51,7 +51,7 @@ public class OrderTriggerHandlerTest {
         
         Test.startTest();
         // Supprime les Order
-        List<Order> ordersToDelete = [SELECT Id FROM Order];
+        List<Order> ordersToDelete = [SELECT Id FROM Order WHERE AccountId IN (SELECT Id FROM Account WHERE Id = :testAccount.Id)];
         delete ordersToDelete;
         Test.stopTest();
         
